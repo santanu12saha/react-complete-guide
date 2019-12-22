@@ -1,4 +1,4 @@
-.Person{
+.person{
     width: 60%;
     margin: 16px auto;
     border: 1px solid #eee;
@@ -7,9 +7,12 @@
     text-align: center;
 }
 
-/* using radium for style */
-/*@media (min-width: 500px){
-    .Person{
-        width: 450spx;
+@media (min-width: 500px){
+    .person{
+        width: 450px;
+        background-color: cornsilk;
+        border: 1px solid #eee;
+        box-shadow: 0 4px 5px #ccc;
+
     }
-}*/
+}
