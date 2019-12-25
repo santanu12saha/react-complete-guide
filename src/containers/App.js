@@ -4,7 +4,30 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
-  state = {
+  constructor(props){
+    super(props);
+    this.state = {
+      persons : [
+        {id: 'assd1', name: 'Santanu', age: 29},
+        {id: 'assd2', name: 'Sumitra', age: 28},
+        {id: 'assd3', name: 'Mahesh', age:28}
+      ],
+      otherState: 'some other value',
+      showPersons: false
+    }
+
+    console.log("[App.js] Inside Constructor", props);
+  }
+
+  UNSAFE_componentWillMount(){
+    console.log("[App.js] Inside componentWillMount()");
+  }
+
+  componentDidMount(){
+    console.log("[App.js] Inside componentDidMount()");
+  }
+   
+  /*state = {
     persons : [
       {id: 'assd1', name: 'Santanu', age: 29},
       {id: 'assd2', name: 'Sumitra', age: 28},
@@ -12,7 +35,7 @@ class App extends Component {
     ],
     otherState: 'some other value',
     showPersons: false
-  }
+  }*/
 
   deletePersonHandler = (personIndex) => {
    // const persons = this.state.persons.slice();
@@ -50,6 +73,7 @@ class App extends Component {
   }
 
   render(){
+    console.log("[App.js] Inside render()");
 
     let persons = null;
 
