@@ -25,7 +25,8 @@ class Persons extends Component {
     console.log("[UPDATE Persons.js] Inside shouldComponentUpdate()", nextProps, nextState);
     return nextProps.persons !== this.props.persons ||
           nextProps.changed !== this.props.changed ||
-          nextProps.clicked !== this.props.clicked;
+          nextProps.clicked !== this.props.clicked ||
+          nextProps.isAuthenticated !== this.props.isAuthenticated;
   }
 
   UNSAFE_componentWillUpdate(nextProps, nextState){
@@ -47,6 +48,7 @@ class Persons extends Component {
           position={index} 
           age={person.age}
           key={person.id}
+          authenticated={this.props.isAuthenticated}
           changed={(event) => this.props.changed(event, person.id)} />
       });
     }

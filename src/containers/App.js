@@ -16,7 +16,8 @@ class App extends Component {
       ],
       otherState: 'some other value',
       showPersons: false,
-      toggleClicked: 0
+      toggleClicked: 0,
+      authenticated: false
     }
 
     console.log("[App.js] Inside Constructor", props);
@@ -33,7 +34,8 @@ class App extends Component {
   shouldComponentUpdate(nextProps, nextState){
     console.log("[UPDATE App.js] Inside shouldComponentUpdate()", nextProps, nextState);
     return nextState.persons !== this.state.persons ||
-          nextState.showPersons !== this.state.showPersons;
+          nextState.showPersons !== this.state.showPersons ||
+          nextState.authenticated !== this.state.authenticated;
   }
 
   UNSAFE_componentWillUpdate(nextProps, nextState){
@@ -53,6 +55,10 @@ class App extends Component {
     otherState: 'some other value',
     showPersons: false
   }*/
+
+  authenticateHandler = () => {
+    this.setState({ authenticated: true });
+  }
 
   deletePersonHandler = (personIndex) => {
    // const persons = this.state.persons.slice();
@@ -109,7 +115,8 @@ class App extends Component {
       persons = <Persons 
             persons={this.state.persons}
             clicked={this.deletePersonHandler}
-            changed={this.nameChangeHandler}/>
+            changed={this.nameChangeHandler}
+            isAuthenticated={this.state.authenticated}/>
     }
    
     return (
@@ -119,7 +126,8 @@ class App extends Component {
               appTitle={this.props.title} 
               showPersons={this.state.showPersons}
               persons={this.state.persons}
-              clicked={this.togglePersonsHandler}/>
+              clicked={this.togglePersonsHandler}
+              authenticate={this.authenticateHandler}/>
             {persons}
         </Aux>
     );
