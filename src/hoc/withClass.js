@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 const withClass = (WrappedComponent, className) => {
-    return class extends Component {
+    const WithClass = class extends Component {
         render(){
             return (
                 <div className={className}>
@@ -10,6 +10,10 @@ const withClass = (WrappedComponent, className) => {
             )
         }
     }
+
+    return React.forwardRef((props, ref) => {
+        return <WithClass {...props} forwardRef={ref}/>
+    })
 } 
 
 export default withClass;
