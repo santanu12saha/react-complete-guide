@@ -1,4 +1,14 @@
 .App {
   text-align: center;
+  margin: 20px;
+}
+
+.Button {
+  border: 5px solid blueviolet;
+  padding: 16px;
+  background-color: blueviolet;
+  font: inherit;
+  color: white;
+  cursor: pointer;  
 }
 

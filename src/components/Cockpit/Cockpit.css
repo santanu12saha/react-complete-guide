@@ -13,6 +13,7 @@
     font: inherit;
     color: white;
     cursor: pointer;
+    margin-right: 10px;
 }
 
 .Button:hover {
