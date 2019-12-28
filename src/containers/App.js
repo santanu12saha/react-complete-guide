@@ -15,7 +15,8 @@ class App extends Component {
         {id: 'assd3', name: 'Mahesh', age:28}
       ],
       otherState: 'some other value',
-      showPersons: false
+      showPersons: false,
+      toggleClicked: 0
     }
 
     console.log("[App.js] Inside Constructor", props);
@@ -85,7 +86,18 @@ class App extends Component {
 
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
-    this.setState({showPersons: !doesShow});
+
+    // Bad way of doing state state change
+
+    //this.setState({showPersons: !doesShow, toggleClicked:this.state.toggleClicked + 1});
+
+    // God way of doing set state change
+    this.setState((prevState, props) => {
+      return {
+        showPersons: !doesShow, 
+        toggleClicked: prevState.toggleClicked + 1
+      }
+    });
   }
 
   render(){
